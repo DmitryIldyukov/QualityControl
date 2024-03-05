@@ -20,7 +20,13 @@ class Program
             string num = arg.Replace(".", ",");
             if (double.TryParse(num, out var @_))
             {
-                verticals.Add(_);
+                if (!double.IsInfinity(_))
+                    verticals.Add(_);
+                else
+                {
+                    Console.WriteLine("неизвестная ошибка");
+                    return;
+                }
             }
             else
             {

@@ -8,35 +8,39 @@ namespace TriangleTests;
 
 class Program
 {
-    private const string path = "tests.txt";
+    private const string path = @"../../../../../testcases.txt";
+    private const string resultFilePath = @"../../../../../result.txt";
     
     static void Main()
     {
         try
         {
             string[] tests = File.ReadAllLines(path);
-            foreach (var test in tests)
+            using (StreamWriter result = new StreamWriter(resultFilePath))
             {
-                string[] allArguments = test.Split(' ');
-                string expectedAnswer = allArguments[allArguments.Length - 1];
-                List<string> arguments = allArguments.ToList();
-                if (arguments.Count > 0)
-                    arguments.RemoveAt(arguments.Count - 1);
-                string argument = string.Join(' ', arguments);
-                string relativePath = "Triangle.exe";
-                string currentDirectory = Directory.GetCurrentDirectory();
-                string absolutePath = Path.Combine(currentDirectory, relativePath);
-                Process process = new Process();
-                process.StartInfo.FileName = absolutePath;
-                process.StartInfo.Arguments = argument;
-                process.StartInfo.RedirectStandardOutput = true;
-                process.StartInfo.UseShellExecute = false;
-                process.Start();
-                string output = process.StandardOutput.ReadToEnd();
-                process.WaitForExit();
-                Console.WriteLine(output.ToLower().Replace(" ", string.Empty).Replace("\r\n", string.Empty) == expectedAnswer
-                    ? "success"
-                    : "error");
+                foreach (var test in tests)
+                {
+                    string[] allArguments = test.Split(' ');
+                    string expectedAnswer = allArguments[allArguments.Length - 1];
+                    List<string> arguments = allArguments.ToList();
+                    if (arguments.Count > 0)
+                        arguments.RemoveAt(arguments.Count - 1);
+                    string argument = string.Join(' ', arguments);
+                    string relativePath = "Triangle.exe";
+                    string currentDirectory = Directory.GetCurrentDirectory();
+                    string absolutePath = Path.Combine(currentDirectory, relativePath);
+                    Process process = new Process();
+                    process.StartInfo.FileName = absolutePath;
+                    process.StartInfo.Arguments = argument;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.UseShellExecute = false;
+                    process.Start();
+                    string output = process.StandardOutput.ReadToEnd();
+                    process.WaitForExit();
+                    result.WriteLine(output.ToLower().Replace(" ", string.Empty).Replace("\r\n", string.Empty) == expectedAnswer
+                        ? "success"
+                        : "error");
+                }
             }
         }
         catch (FileNotFoundException)

@@ -10,7 +10,7 @@ class Program
     {
         if (args.Length < 3)
         {
-            Console.WriteLine("Неправильный ввод");
+            Console.WriteLine("неизвестная ошибка");
             return;
         }
         List<double> verticals = new List<double>();
@@ -24,7 +24,7 @@ class Program
             }
             else
             {
-                Console.WriteLine($"{arg} не является числом");
+                Console.WriteLine("неизвестная ошибка");
                 return;
             }
         }
@@ -35,15 +35,15 @@ class Program
     private static string GetTriangleType(List<double> verticals)
     {
         if (verticals.Count != 3)
-            return "Неправильный ввод";
+            return "неизвестная ошибка";
             
         if (verticals.Any(_ => _ <= 0) || !TriangleCanExist(verticals[0], verticals[1], verticals[2]))
-            return "Не треугольник";
+            return "не треугольник";
         if (verticals[0] == verticals[1] && verticals[0] == verticals[2])
-            return "Равносторонний";
+            return "равносторонний";
         if (verticals[0] == verticals[1] || verticals[0] == verticals[2] || verticals[1] == verticals[2])
-            return "Равнобедренный";
-        return "Обычный";
+            return "равнобедренный";
+        return "обычный";
     }
 
     private static bool TriangleCanExist(double a, double b, double c) => ((a + b > c) && (a + c > b) && (b + c > a));

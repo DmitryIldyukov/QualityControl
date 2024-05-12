@@ -1,0 +1,6 @@
+@Mountebank_HostAddress = http://localhost:5230
+
+GET {{Mountebank_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

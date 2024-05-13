@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mountebank", "Mountebank.csproj", "{D025DEDB-7B17-454F-852D-B5BA0B5356F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mountebank", "Mountebank\Mountebank.csproj", "{F3488ED6-BEDD-42DA-86C0-BAD40038E849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MountebankTests", "MountebankTests\MountebankTests.csproj", "{418D07A9-AEC6-46C3-B5AE-8D0B9A80CD24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D025DEDB-7B17-454F-852D-B5BA0B5356F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D025DEDB-7B17-454F-852D-B5BA0B5356F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D025DEDB-7B17-454F-852D-B5BA0B5356F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D025DEDB-7B17-454F-852D-B5BA0B5356F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3488ED6-BEDD-42DA-86C0-BAD40038E849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3488ED6-BEDD-42DA-86C0-BAD40038E849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3488ED6-BEDD-42DA-86C0-BAD40038E849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3488ED6-BEDD-42DA-86C0-BAD40038E849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418D07A9-AEC6-46C3-B5AE-8D0B9A80CD24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418D07A9-AEC6-46C3-B5AE-8D0B9A80CD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418D07A9-AEC6-46C3-B5AE-8D0B9A80CD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418D07A9-AEC6-46C3-B5AE-8D0B9A80CD24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

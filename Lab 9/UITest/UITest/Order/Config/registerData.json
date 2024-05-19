@@ -1,0 +1,16 @@
+{
+  "valid": {
+    "login": "qwertyqwerty123123123",
+    "password": "qwertyqwerty123123123",
+    "name": "qwertyqwerty123123123",
+    "email": "qwertyqwerty123123123@mail.ru",
+    "address": "qwertyqwerty123123123"
+  },
+  "busyData": {
+    "login": "qwerty123",
+    "password": "qwerty123",
+    "name": "qwerty123",
+    "email": "qwerty123@mail.ru",
+    "address": "qwerty123"
+  }
+}

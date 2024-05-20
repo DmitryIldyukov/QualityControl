@@ -12,5 +12,5 @@ public class Product
     public Byte status { get; set; }
     public string keywords { get; set; }
     public string description { get; set; }
-    public Byte hit { get; set; }
+    public Byte? hit { get; set; }
 }

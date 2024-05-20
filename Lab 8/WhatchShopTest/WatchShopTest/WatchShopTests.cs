@@ -92,6 +92,7 @@ public class WatchShopTests
         Assert.IsTrue(IsJsonValid(response, _addProductSchema));
         Assert.IsTrue(IsJsonValid(currentProduct, _productSchema));
         Assert.That.IsSameProducts(product, currentProduct);
+        Assert.AreEqual(currentProduct["status"], "1", "Ожидался статус 1");
     }
     
     [TestMethod]
@@ -111,8 +112,13 @@ public class WatchShopTests
         var product2 = await GetProductById(productId2);
         
         // Assert
+        Assert.IsTrue(IsJsonValid(product1, _productSchema), "Продукт имеет некорректные поля");
+        Assert.IsTrue(IsJsonValid(product2, _productSchema), "Продукт имеет некорректные поля");
+        Assert.That.IsSameProducts(product1, product);
         Assert.AreEqual(product1["alias"], product["alias"], "Первый продукт должен быть с оригинальным alias");
+        Assert.AreEqual(product1["status"], "1", "Ожидался статус 1");
         Assert.AreEqual(product2["alias"], product["alias"] + "-0", "Второй продукт должен быть с -0 в конце");
+        Assert.AreEqual(product2["status"], "1", "Ожидался статус 1");
     }
 
     [DataRow("invalidByCategoryIdLess")]
@@ -166,8 +172,9 @@ public class WatchShopTests
         
         // Assert
         Assert.IsNotNull(currentProduct, "Продукт не найден");
-        Assert.IsTrue(IsJsonValid(currentProduct, _productSchema));
+        Assert.IsTrue(IsJsonValid(currentProduct, _productSchema), "Продукт имеет некорректные поля");
         Assert.That.IsSameProducts(currentProduct, editProduct);
+        Assert.AreEqual(currentProduct["status"], "1", "Ожидался статус 1");
     }
     
     [TestMethod]
@@ -183,23 +190,6 @@ public class WatchShopTests
         // Act
         var response = await _watchShopService.EditProduct(editProduct!.ToObject<Product>()!);
         var currentProduct = await GetProductById(productId);
-        
-        // Assert
-        Assert.AreEqual(response["status"], 1, "Ожидался статус 1");
-    }
-    
-    [DataRow("invalidProductPrice1")]
-    [DataRow("invalidProductPrice2")]
-    [TestMethod]
-    public async Task Test_Add_Product_With_Invalid_Price(string json)
-    {
-        // Arrage
-        var product = _tests[json];
-        
-        // Act
-        var response = await _watchShopService.AddProduct(product!.ToObject<Product>()!);
-        var productId = response["id"]!.ToObject<int>();
-        _addedProductIds.Add(productId);
         
         // Assert
         Assert.AreEqual(response["status"], 1, "Ожидался статус 1");
@@ -231,7 +221,40 @@ public class WatchShopTests
         var result = await _watchShopService.DeleteProduct(productId);
 
         // Assert
-        Assert.AreEqual(result["status"], 0, "Ожидался статус 1");
+        Assert.AreEqual(result["status"], 0, "Ожидался статус 0");
         Assert.IsNull(await GetProductById(productId), "Продукт не удалился");
+    }
+
+    [TestMethod]
+    public async Task Test_Invalid_Product_Hit_Less()
+    {
+        // Arrange
+        var product = _tests["invalidProductHit"];
+        product["hit"] = "-1";
+        
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<JsonSerializationException>(async () =>
+        {
+            var result = await _watchShopService.AddProduct(product.ToObject<Product>()!);
+            var productId = result["id"]!.ToObject<int>();
+            _addedProductIds.Add(productId);
+        });
+    }
+    
+    [TestMethod]
+    public async Task Test_Invalid_Product_Hit_More()
+    {
+        // Arrange
+        var product = _tests["invalidProductHit"];
+        product["hit"] = "2";
+        
+        // Act
+        var result = await _watchShopService.AddProduct(product.ToObject<Product>()!);
+        var productId = result["id"]!.ToObject<int>();
+        _addedProductIds.Add(productId);
+        
+        // Assert
+        Assert.AreEqual(result["status"], 1, "Ожидался статус 1");
+        Assert.IsTrue(IsJsonValid(result, _productSchema), "Продукт имеет некорректные поля");
     }
 }

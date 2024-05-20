@@ -79,6 +79,30 @@
     "description": "ValidProductDescription",
     "hit": "4"
   },
+  "invalidProductPrice1": {
+    "category_id": "1",
+    "title": "invalidProductPrice222",
+    "alias": "invalidProductPrice222",
+    "content": "ValidProductContent",
+    "price": "-300",
+    "old_price": "301",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription",
+    "hit": "0"
+  },
+  "invalidProductPrice2": {
+    "category_id": "1",
+    "title": "invalidProductPrice222",
+    "alias": "invalidProductPrice222",
+    "content": "ValidProductContent",
+    "price": "300",
+    "old_price": "-300",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription",
+    "hit": "0"
+  },
   "validEditProduct": {
     "category_id": "2",
     "title": "edited222111",

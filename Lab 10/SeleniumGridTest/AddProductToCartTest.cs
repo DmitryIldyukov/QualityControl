@@ -17,8 +17,26 @@ public class AddProductToCartTest {
   
   [Test]
   [Parallelizable]
-  public void addProductToCart() {
+  public void addProductToCartChrome() {
     using (var driver = LocalDriverFactory.CreateInstance(BrowserType.Chrome, hubUrl))
+    {
+      driver.Navigate().GoToUrl("http://shop.qatl.ru/");
+      driver.Manage().Window.Maximize();
+      driver.FindElement(By.LinkText(PRODUCT_NAME)).Click();
+      driver.FindElement(By.Name("quantity")).Click();
+      driver.FindElement(By.Name("quantity")).SendKeys("5");
+      driver.FindElement(By.Id("productAdd")).Click();
+
+      Thread.Sleep(2000);
+
+      Assert.AreEqual(driver.FindElement(By.XPath("//tr[1]//td[2]//a")).Text, PRODUCT_NAME);
+    }
+  }
+    
+  [Test]
+  [Parallelizable]
+  public void addProductToCartEdge() {
+    using (var driver = LocalDriverFactory.CreateInstance(BrowserType.Edge, hubUrl))
     {
       driver.Navigate().GoToUrl("http://shop.qatl.ru/");
       driver.Manage().Window.Maximize();
@@ -35,7 +53,7 @@ public class AddProductToCartTest {
   
   [Test]
   [Parallelizable]
-  public void addProductToCart3() {
+  public void addProductToCartFirefox() {
     using (var driver = LocalDriverFactory.CreateInstance(BrowserType.Firefox, hubUrl))
     {
       driver.Navigate().GoToUrl("http://shop.qatl.ru/");

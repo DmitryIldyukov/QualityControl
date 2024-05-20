@@ -12,7 +12,7 @@ public class OrderActions
 
     private string _mainUrl = "http://shop.qatl.ru/";
     
-    private static readonly By _firstProductXPath = By.XPath("//a[@href='cart/add?id=1']");
+    private static readonly By _firstProductXPath = By.XPath("//a[@href='cart/add?id=2']");
     private static readonly By _toOrderBtnXPath = By.XPath("//div[@class='modal-footer']//a");
     private static readonly By _orderBtnXPath = By.XPath("//button[@type='submit']");
     

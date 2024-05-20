@@ -1,12 +1,10 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
+using Microsoft.VisualStudio.TestTools.UnitTesting;using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using UITest.Authorization.PageActions;
 using UITest.Order.Config;
 using UITest.Order.PageActions;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace UITest.Order.TestCases;
 

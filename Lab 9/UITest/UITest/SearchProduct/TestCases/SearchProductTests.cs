@@ -12,7 +12,7 @@ public class SearchProductTests
     private readonly string _url = "http://shop.qatl.ru/";
     private SearchProductActions _actions;
     
-    private const string existWatchName = "qwer"; 
+    private const string existWatchName = "1234"; 
     private const string notExistWatchName = "mnbzxcmnbzxc"; 
 
     [TestInitialize]

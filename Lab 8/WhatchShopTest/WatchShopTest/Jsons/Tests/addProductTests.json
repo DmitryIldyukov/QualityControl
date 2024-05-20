@@ -1,0 +1,118 @@
+{
+  "validFirst": {
+    "category_id": "1",
+    "title": "ValidProductTitle2222",
+    "alias": "validproducttitle2222",
+    "content": "ValidProductContent",
+    "price": "300",
+    "old_price": "301",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription",
+    "hit": "0"
+  },
+  "validSecond": {
+    "category_id": "1",
+    "title": "ValidProductTitle1111",
+    "alias": "validproducttitle1111",
+    "content": "ValidProductContent",
+    "price": "300",
+    "old_price": "301",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription",
+    "hit": "0"
+  },
+  "validForAlias": {
+    "category_id": "1",
+    "title": "testtesttesttestwet",
+    "alias": "testtesttesttestwet",
+    "content": "ValidProductContent",
+    "price": "300",
+    "old_price": "301",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription",
+    "hit": "0"
+  },
+  "invalidByCategoryIdLess": {
+    "category_id": "0",
+    "title": "InvalidProductCategoryIdLessTitle",
+    "content": "InvalidProductCategoryIdLessContent",
+    "price": "300",
+    "old_price": "301",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription",
+    "hit": "0"
+  },
+  "invalidByCategoryIdMore": {
+    "category_id": "16",
+    "title": "InvalidProductCategoryIdMore",
+    "content": "InvalidProductCategoryIdMoreContent",
+    "price": "300",
+    "old_price": "301",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription",
+    "hit": "0"
+  },
+  "validProductForEditing": {
+    "category_id": "1",
+    "title": "ValidProductToFurtherEditTitle",
+    "content": "ValidProductToFurtherEditContent",
+    "price": "300",
+    "old_price": "301",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription",
+    "hit": "0"
+  },
+  "invalidHit": {
+    "category_id": "1",
+    "title": "ValidProductToFurtherEditTitle",
+    "content": "ValidProductToFurtherEditContent",
+    "price": "300",
+    "old_price": "301",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription",
+    "hit": "4"
+  },
+  "validEditProduct": {
+    "category_id": "2",
+    "title": "edited222111",
+    "alias": "edited222111",
+    "content": "ValidProductContent22",
+    "price": "3000",
+    "old_price": "3010",
+    "status": "1",
+    "keywords": "ValidProductKeywords22",
+    "description": "ValidProductDescription22",
+    "hit": "1"
+  },
+  "invalidIdEditProduct": {
+    "id": "-1",
+    "category_id": "2",
+    "title": "edited2222312",
+    "alias": "edited2222312",
+    "content": "ValidProductContent22",
+    "price": "3000",
+    "old_price": "3010",
+    "status": "1",
+    "keywords": "ValidProductKeywords22",
+    "description": "ValidProductDescription22",
+    "hit": "1"
+  },
+  "invalidProductHit": {
+    "category_id": "1",
+    "title": "validProductHit11",
+    "alias": "validProductHit11",
+    "content": "ValidProductContent",
+    "price": "300",
+    "old_price": "-300",
+    "status": "1",
+    "keywords": "ValidProductKeywords",
+    "description": "ValidProductDescription"
+  }
+}
